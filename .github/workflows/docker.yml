@@ -43,10 +43,13 @@ jobs:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup Build and Push
+      if: github.event_name == 'create' && github.event.ref_type == 'tag'
+      run: echo "context=https://github.com/sonatype/docker-nexus3.git#${GITHUB_REF_NAME#*v}" >> $GITHUB_ENV
     - name: Build and Push
       uses: docker/build-push-action@v3
       with:
-        context: https://github.com/sonatype/docker-nexus3.git
+        context: ${{ env.context }}
         platforms: linux/amd64,linux/arm64
         push: ${{ github.event_name != 'pull_request' }}
         labels: ${{ steps.metadata.outputs.labels }}
