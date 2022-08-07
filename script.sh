@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 currentVersion=$(git describe --tags --abbrev=0)
 latestVersion=v$(git -c "versionsort.suffix=-" \
@@ -9,7 +9,7 @@ latestVersion=v$(git -c "versionsort.suffix=-" \
 echo "Current Version: $currentVersion"
 echo "Latest Version: $latestVersion"
 
-if [ "$currentVersion" = "$latestVersion" ]; then
+if [[ "$currentVersion" == "$latestVersion" ]]; then
   echo "Everything up-to-date"
   exit 0
 fi
