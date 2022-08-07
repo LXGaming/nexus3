@@ -14,4 +14,9 @@ if [[ "$currentVersion" == "$latestVersion" ]]; then
   exit 0
 fi
 
+if [[ ! "$latestVersion" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  echo "Unsupported Version: $latestVersion"
+  exit 1
+fi
+
 git push origin "$latestVersion"
