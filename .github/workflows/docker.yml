@@ -19,8 +19,6 @@ jobs:
           lxgaming/nexus3
           ghcr.io/lxgaming/nexus3
         tags: |
-          type=ref,event=branch
-          type=ref,event=pr
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
     - name: Setup QEMU
