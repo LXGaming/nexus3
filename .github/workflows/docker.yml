@@ -41,7 +41,7 @@ jobs:
     - name: Setup Build and Push
       run: echo "context=https://github.com/sonatype/docker-nexus3.git#${GITHUB_REF_NAME#*v}" >> $GITHUB_ENV
     - name: Build and Push
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v4
       with:
         context: ${{ env.context }}
         platforms: linux/amd64,linux/arm64
