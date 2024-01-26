@@ -10,8 +10,6 @@ version: "3"
 services:
   nexus:
     container_name: nexus
-    environment:
-      - TZ=Pacific/Auckland
     image: lxgaming/nexus3:latest
     restart: unless-stopped
     volumes:
