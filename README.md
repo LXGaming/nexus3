@@ -6,7 +6,6 @@
 ## Usage
 ### docker-compose
 ```yaml
-version: "3"
 services:
   nexus:
     container_name: nexus
