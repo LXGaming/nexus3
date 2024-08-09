@@ -68,11 +68,11 @@ jobs:
           lxgaming/nexus3
           ghcr.io/lxgaming/nexus3
         tags: |
-          type=semver,pattern={{version}}
-          type=semver,pattern={{major}}.{{minor}}
+          type=raw,value=alpine
+          type=semver,pattern={{version}},suffix=-alpine
+          type=semver,pattern={{major}}.{{minor}},suffix=-alpine
         flavor: |
           latest=false
-          suffix=-alpine
     - name: Setup QEMU
       uses: docker/setup-qemu-action@v3
     - name: Setup Buildx
