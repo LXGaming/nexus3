@@ -15,7 +15,7 @@ if [[ "$currentVersion" == "$latestVersion" ]]; then
 fi
 
 if [[ ! "$latestVersion" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  echo "Unsupported Version: $latestVersion"
+  echo "Failed to parse '$latestVersion' as a SemVer"
   exit 1
 fi
 
