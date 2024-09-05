@@ -1,8 +1,8 @@
 #!/bin/bash
 
-currentVersion=$(git describe --tags --abbrev=0)
+currentVersion=$(git describe --tags --abbrev=0 --match=v3.70.*)
 latestVersion=v$(git -c "versionsort.suffix=-" \
-    ls-remote --refs --sort="version:refname" --tags https://github.com/sonatype/docker-nexus3 \
+    ls-remote --refs --sort="version:refname" --tags https://github.com/sonatype/docker-nexus3 3.70.* \
     | tail --lines=1 \
     | cut --delimiter="/" --fields=3)
 
